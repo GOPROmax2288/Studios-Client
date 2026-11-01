@@ -7,17 +7,16 @@
     }"
   >
     <div
-      class="flex flex-grow-0 flex-row items-center justify-center gap-1 home-metadata-box"
+      class="flex flex-grow-0 flex-row items-center justify-center gap-1 home-metadata-box flex-1"
     >
       <AvatarItemList
         :items="items"
       />
     </div>
-    <div class="flex-grow mr-2" />
     <transition name="fade-transition">
       <div
         key="launch-button-group"
-        class="flex items-center justify-end overflow-visible home-launch-group"
+        class="flex items-center justify-center flex-none home-launch-group"
         v-if="!isInFocusMode || !(router.currentRoute.value.path === '/')"
       >
         <HomeLaunchButtonStatus
@@ -31,6 +30,7 @@
         />
       </div>
     </transition>
+    <div class="flex-1" />
   </div>
 </template>
 
