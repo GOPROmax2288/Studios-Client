@@ -8,6 +8,23 @@
     class="sidebar moveable z-10"
     :style="{ 'backdrop-filter': `blur(${blurSidebar}px)`, backgroundColor: sideBarColor }"
   >
+    <div
+      class="sidebar-brand non-moveable"
+      aria-label="PRO STUDIOS"
+      title="PRO STUDIOS"
+    >
+      <img
+        :src="logo"
+        alt="PRO STUDIOS logo"
+        class="sidebar-brand__logo"
+        draggable="false"
+      />
+      <div class="sidebar-brand__text">
+        <span class="sidebar-brand__pro">PRO</span>
+        <span class="sidebar-brand__studios">STUDIOS</span>
+      </div>
+    </div>
+
     <div v-roving-tabindex role="group" class="sidebar__section">
       <button
         v-shared-tooltip.right="() => t('shared.back')"
@@ -146,6 +163,23 @@
         <v-icon>arrow_back</v-icon>
       </v-btn>
 
+      <div
+        class="sidebar-brand sidebar-brand--horizontal non-moveable mr-1"
+        aria-label="PRO STUDIOS"
+        title="PRO STUDIOS"
+      >
+        <img
+          :src="logo"
+          alt="PRO STUDIOS logo"
+          class="sidebar-brand__logo"
+          draggable="false"
+        />
+        <div class="sidebar-brand__text">
+          <span class="sidebar-brand__pro">PRO</span>
+          <span class="sidebar-brand__studios">STUDIOS</span>
+        </div>
+      </div>
+
       <v-btn
         id="my-stuff-button"
         data-testid="nav-accounts"
@@ -254,6 +288,7 @@
 
 <script lang="ts" setup>
 import PlayerAvatar from '@/components/PlayerAvatar.vue'
+import logo from '@/assets/logo.webp'
 import { useAgentChatEntry, useAgentChatStatus } from '@/composables/agentChat'
 import { useDragAutoScroll } from '@/composables/dragAutoScroll'
 import { kMultiplayerEntry } from '@/composables/multiplayerEntry'
@@ -374,6 +409,69 @@ useDragAutoScroll(instancesScrollEl)
   border-radius: 1px;
   background-color: rgba(255, 255, 255, 0.12);
   flex-shrink: 0;
+}
+
+.sidebar-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  padding: 10px 0 6px;
+  user-select: none;
+}
+
+.sidebar-brand--horizontal {
+  flex-direction: row;
+  padding: 0;
+  gap: 8px;
+}
+
+.sidebar-brand__logo {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.sidebar-brand--horizontal .sidebar-brand__logo {
+  width: 24px;
+  height: 24px;
+}
+
+.sidebar-brand__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.15;
+}
+
+.sidebar-brand--horizontal .sidebar-brand__text {
+  flex-direction: row;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.sidebar-brand__pro {
+  color: #f59e0b;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.sidebar-brand--horizontal .sidebar-brand__pro {
+  font-size: 12px;
+}
+
+.sidebar-brand__studios {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.sidebar-brand--horizontal .sidebar-brand__studios {
+  font-size: 11px;
 }
 
 /* Rounded rectangle back button (mimics v2 list-item) */
