@@ -15,6 +15,44 @@
       :max-width="320"
       elevation="8"
     >
+      <div
+        v-if="currentProfile"
+        class="skin-hero px-3.5 pt-3 pb-2.5 border-b border-white/5"
+      >
+        <div class="flex items-center gap-3">
+          <div
+            class="flex items-center justify-center rounded-xl bg-gradient-to-b from-white/10 to-transparent border border-white/10 flex-shrink-0"
+            style="width: 74px; height: 84px;"
+          >
+            <PlayerSkin2D
+              :src="currentProfile.profile?.textures?.SKIN?.url"
+              :slim="isSlim"
+              :width="34"
+              :height="68"
+            />
+          </div>
+          <div class="min-w-0 flex flex-col gap-1.5">
+            <div class="text-sm font-bold truncate">
+              {{ currentProfile.name || t('myStuff') }}
+            </div>
+            <div class="text-[10px] font-semibold uppercase tracking-widest opacity-50">
+              {{ t('userSkin.skinType') }}
+            </div>
+            <v-btn
+              size="x-small"
+              variant="tonal"
+              color="primary"
+              class="rounded-lg font-medium self-start"
+              prepend-icon="styler"
+              data-testid="account-menu-skins-capes"
+              @click="onGoToMyStuff"
+            >
+              {{ t('userCape.changeTitle') }}
+            </v-btn>
+          </div>
+        </div>
+      </div>
+
       <div class="flex items-center justify-between px-3.5 pt-3 pb-2 border-b border-white/5">
         <div class="flex items-center gap-2">
           <v-icon size="16" color="primary">manage_accounts</v-icon>
@@ -113,6 +151,7 @@
 
 <script lang="ts" setup>
 import PlayerAvatar from '@/components/PlayerAvatar.vue'
+import PlayerSkin2D from '@/components/PlayerSkin2D.vue'
 import { useService } from '@/composables'
 import { kUserContext } from '@/composables/user'
 import { useUserMenuControl } from '@/composables/userMenu'
@@ -145,6 +184,13 @@ const { show: showUserProfileDialog } = useUserMenuControl()
 const shown = ref(false)
 const target = ref<HTMLElement | [number, number] | undefined>()
 const isSelectingAccount = ref(false)
+
+const currentProfile = computed(() => {
+  for (const e of accountEntries.value) if (e.isCurrent) return e
+  return undefined
+})
+const isSlim = computed(() =>
+  (currentProfile.value?.profile?.textures?.SKIN as any)?.metadata?.model === 'slim')
 
 interface AccountEntry {
   key: string
