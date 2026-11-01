@@ -33,7 +33,7 @@
           </div>
           <div class="min-w-0 flex flex-col gap-1.5">
             <div class="text-sm font-bold truncate">
-              {{ currentProfile.name || t('myStuff') }}
+              {{ currentProfile.profile?.name || currentProfile.user.username || t('myStuff') }}
             </div>
             <div class="text-[10px] font-semibold uppercase tracking-widest opacity-50">
               {{ t('userSkin.skinType') }}
