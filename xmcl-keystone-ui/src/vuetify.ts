@@ -101,8 +101,8 @@ export const vuetify = createVuetify({
       dark: {
         dark: true,
         colors: {
-          primary: '#4caf50',
-          accent: '#00e676',
+          primary: '#f59e0b',
+          accent: '#fbbf24',
         },
       },
     },

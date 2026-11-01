@@ -59,7 +59,7 @@ async function downloadAsarUpdate(
     platformFlag += '-ia32'
   }
   const file = `app-${version}-${platformFlag}.asar`
-  const github = `https://github.com/Voxelum/x-minecraft-launcher/releases/download/v${version}/${file}`
+  const github = `https://github.com/GOPROmax2288/Studios-Client/releases/download/v${version}/${file}`
 
   // Skip the download entirely if the pending file already matches the
   // published checksum.

@@ -90,7 +90,7 @@ import SettingItem from '@/components/SettingItem.vue'
 const { show: showUpdateInfo } = useDialog('update-info')
 const disableUpdate = false // state.env !== 'raw'
 function openReleases() {
-  window.open('https://github.com/voxelum/x-minecraft-launcher/releases', 'browser')
+  window.open('https://github.com/GOPROmax2288/Studios-Client/releases', 'browser')
 }
 const { updateInfo, installing, updateStatus, checkUpdate, checkingUpdate, version, updateStateReady, updateUnavailable, updateCapabilityReason, manualCheckRequested } = injection(kUpdateSettings)
 const hasNewUpdate = computed(() => updateStatus.value !== 'none' && !!updateInfo.value?.newUpdate)

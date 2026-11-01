@@ -112,7 +112,7 @@ const defaultColor = useInstanceGroupDefaultColor()
 }
 
 .add-instance-button {
-  --sidebar-item-color: #4caf50;
+  --sidebar-item-color: #f59e0b;
 }
 </style>
 

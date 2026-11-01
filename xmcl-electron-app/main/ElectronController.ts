@@ -228,7 +228,7 @@ export class ElectronController implements LauncherAppController {
     await app.whenReady()
     const restoredSession = this.app.session.getSession(defaultApp.url)
     const browser = new BrowserWindow({
-      title: 'XMCL Launcher Migrate',
+      title: 'STUDIOS Client Migrate',
       frame: false,
       resizable: false,
       width: 600,
@@ -273,7 +273,7 @@ export class ElectronController implements LauncherAppController {
     const enableTranslucency = this.settings?.windowTranslucent ?? false
 
     const browser = new BrowserWindow({
-      title: 'XMCL Launcher Browser',
+      title: 'STUDIOS Client Browser',
       frame: false,
       transparent: true,
       resizable: false,

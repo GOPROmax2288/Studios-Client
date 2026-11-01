@@ -4,14 +4,14 @@
     "main": "./index.js",
     "version": "0.73.0",
     "author": "ci010 <cijhn@hotmail.com>",
-    "description": "XMCL - An open-source launcher for Minecraft",
+    "description": "STUDIOS Client - the official PRO STUDIOS launcher for Minecraft",
     "license": "MIT",
     "engines": {
         "node": ">=22.16.0"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/voxelum/x-minecraft-launcher"
+        "url": "https://github.com/GOPROmax2288/Studios-Client"
     },
     "msstoreCliAppId": "9MXJWHXTP4B9",
     "scripts": {

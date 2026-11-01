@@ -13,23 +13,23 @@ const linuxPackageScripts = {
 }
 
 export const config = {
-  productName: 'XMCL',
-  appId: 'xmcl',
+  productName: 'STUDIOS Client',
+  appId: 'net.prostudios.client',
   directories: {
     output: 'build/output',
     buildResources: 'build',
     app: '.',
   },
   protocols: {
-    name: 'XMCL',
-    schemes: ['xmcl'],
+    name: 'STUDIOS Client',
+    schemes: ['xmcl'], // scheme kept as upstream 'xmcl' so deep-link internals and OAuth redirect handlers keep working
   },
   // assign publish for auto-updater
   // set this to your own repo!
   publish: [{
     provider: 'github',
-    owner: 'voxelum',
-    repo: 'x-minecraft-launcher',
+    owner: 'GOPROmax2288',
+    repo: 'Studios-Client',
   }],
   files: [{
     from: 'dist',
@@ -45,18 +45,18 @@ export const config = {
     to: 'agent-documents',
     filter: ['**/*.md'],
   }],
-  artifactName: 'xmcl-${version}-${platform}-${arch}.${ext}',
+  artifactName: 'studios-client-${version}-${platform}-${arch}.${ext}',
   appx: {
-    displayName: 'XMCL',
-    applicationId: 'xmcl',
-    identityName: 'xmcl',
+    displayName: 'STUDIOS Client',
+    applicationId: 'netprostudios.client',
+    identityName: 'netprostudios.client',
     backgroundColor: 'transparent',
     publisher: process.env.PUBLISHER,
-    publisherDisplayName: 'CI010',
+    publisherDisplayName: 'PRO STUDIOS',
     setBuildNumber: true,
   },
   dmg: {
-    artifactName: 'xmcl-${version}-${arch}.${ext}',
+    artifactName: 'studios-client-${version}-${arch}.${ext}',
     contents: [
       {
         x: 410,
@@ -81,7 +81,7 @@ export const config = {
       },
     ],
     extendInfo: {
-      NSLocalNetworkUsageDescription: 'XMCL and Minecraft need access to your local network to discover and connect to LAN games and servers.',
+      NSLocalNetworkUsageDescription: 'STUDIOS Client and Minecraft need access to your local network to discover and connect to LAN games and servers.',
       NSMicrophoneUsageDescription: 'A Minecraft mod wants to access your microphone.',
       NSCameraUsageDescription: 'Please give us access to your camera',
       'com.apple.security.device.audio-input': true,
@@ -107,17 +107,17 @@ export const config = {
     ],
   },
   linux: {
-    executableName: 'xmcl',
+    executableName: 'studios-client',
     electronLanguages: ['en-US'],
     desktop: {
       entry: {
         MimeType: 'x-scheme-handler/xmcl',
-        StartupWMClass: 'xmcl',
+        StartupWMClass: 'studios-client',
       },
     },
     category: 'Game',
     icon: 'icons/dark.icns',
-    artifactName: 'xmcl-${version}-${arch}.${ext}',
+    artifactName: 'studios-client-${version}-${arch}.${ext}',
     target: [
       { target: 'deb', arch: ['x64', 'arm64'] },
       { target: 'rpm', arch: ['x64', 'arm64'] },
