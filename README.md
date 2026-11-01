@@ -4,6 +4,10 @@
 
 A fast, full-featured Minecraft launcher for the PRO STUDIOS community, with the server right at your fingertips.
 
+## Download
+
+- **Windows (portable, no installer needed)**: split zip in two parts — download [Studios-Client-portable-win.zip.001](releases/Studios-Client-portable-win.zip.001) and [Studios-Client-portable-win.zip.002](releases/Studios-Client-portable-win.zip.002) into the same folder, then open the `.001` with [7-Zip](https://www.7-zip.org) (or WinRAR) and extract. Run `Studios-Client.exe`. Nothing to install.
+
 ## Features
 
 - **Microsoft login works out of the box** — sign in with your real Minecraft account in one click.
